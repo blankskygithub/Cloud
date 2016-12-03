@@ -1,4 +1,5 @@
 import BaseTools
+import os
 from BaseTools import app
 from BaseTools import request
 from BaseTools import render_template
@@ -25,3 +26,12 @@ def login():
             return RequestResult.login_fail(request.form['username'])
     return render_template('login.html')
 
+
+@app.route('/user/<username>/uploads', methods=['POST', 'GET'])
+def upload(username):
+    file_saved_path = '/resource/'+username+'/uploads'
+    if request.method == 'POST':
+        file = request.form['selected_file']
+        if Check.is_file_valid(file.filename):
+            return RequestResult.upload_file_success(file, file_saved_path)
+    return render_template('fileEditor.html', username=username)

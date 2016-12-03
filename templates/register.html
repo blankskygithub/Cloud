@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
     <div>
-        <form class="bs-example bs-example-form" role="form" action="{{ url_for('register') }}" method="post">
+        <form class="bs-example bs-example-form" role="form" action="{{ url_for('register') }}" method="POST">
             <div class="input-group">
                 <span class="input-group-addon">Username:</span>
                 <input type="text" class="form-control" placeholder="username">
@@ -27,7 +27,7 @@
             </div>
             <br>
             <div class="input-group">
-                <input type="button" class="btn btn-default" name="submit" value="提交">
+                <input type="submit" class="btn btn-default" name="submit" value="提交">
             </div>
         </form>
     </div>

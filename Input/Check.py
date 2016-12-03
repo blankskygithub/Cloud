@@ -14,3 +14,8 @@ def is_access_token_valid_login(username, password):
         return True
     else:
         return False
+
+
+def is_file_valid(filename):
+    pass
+

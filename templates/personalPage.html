@@ -6,6 +6,9 @@
     <div>
         <h1>Hello {{ username }}</h1>
     </div>
+    <div>
+        <a href="{{ url_for('upload', username=username) }}"><button class="btn btn-default" type="button" name="upload">上传文件</button></a>
+    </div>
 {% endblock %}
 {% block footer %}
     {{ super() }}

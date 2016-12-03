@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}File Editor{% endblock %}
+{% block topnavbar %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <input id="hidden_select_file" type="file" name="selected_file" style="display: none">
+        <form class="bs-example bs-example-form" role="form" method="post">
+            <div class="input-group">
+                <input id="show_file_path" type="text" class="form-control" placeholder="未选择文件">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="$('input[id=hidden_select_file]').click();">Select File</button>
+                </span>
+{#                <button class="btn btn-default" type="button" onclick="$('input[id=hidden_select_file]').click;">Select File</button>#}
+            </div>
+            <div class="input-group">
+                <input class="btn btn-default" type="submit" value="上传">
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $('input[id=hidden_select_file]').change(function () {
+            $('input[id=show_file_path]').val($(this).val());
+        });
+    </script>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
