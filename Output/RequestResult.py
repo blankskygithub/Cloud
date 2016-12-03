@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from BaseTools import redirect, session, url_for
 
+
 def register_success(user_name):
     pass
 
