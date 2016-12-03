@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <meta name="viewport" content="width=device-width,, initial-scale=1">#}
+    <title>{% block title %}Title{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')  }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+{#    <div class="container">#}
+{#        {% block content %}#}
+{#        {% endblock %}#}
+{#    </div>#}
+    {% block topnavbar %}
+        <div>
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                   <a class="navbar-brand" href="{{ url_for('index', username=username) }}">图标ICON</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">小组</a></li>
+                        <li><a href="#">文件</a></li>
+                        <li><a href="#">图表</a></li>
+                        {% if session.logged_in and username %}
+                            <li><a href="{{ url_for('user_profile', username=username) }}"><button type="button" class="btn btn-default">{{ username }}</button></a></li>
+                        {% else %}
+                            <li>
+                                <div class="btn-group">
+                                    <a href="{{ url_for('login') }}"><button type="button" class="btn btn-default" name="login">登录</button></a>
+                                    <a href="{{ url_for('register') }}"><button type="button" class="btn btn-default" name="register">注册</button></a>
+                                </div>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            </nav>
+        </div>
+    {% endblock %}
+
+    {% block content %}#}
+    {% endblock %}
+
+    {% block footer %}
+        &copy; Copyright 2016 by M4B112 Group
+    {% endblock %}
+{#    <div class="panel-footer">#}
+{#        {% block footer %}#}
+{#            &copy; Copyright 2016 by M4B112 Group#}
+{#        {% endblock %}#}
+{#    </div>#}
+</body>
+</html>
